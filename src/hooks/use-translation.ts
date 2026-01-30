@@ -77,6 +77,7 @@ export function useTranslation() {
     targetLanguage,
     setTargetLanguage,
     translatedText,
+    setTranslatedText,
     isTranslating,
     translate,
     sourceLanguages,

@@ -28,7 +28,6 @@ export function Translator() {
     sourceLanguages,
     targetLanguages,
     selectedSourceLanguage,
-    selectedTargetLanguage,
     wordCount,
     exampleWords,
   } = useTranslation();
