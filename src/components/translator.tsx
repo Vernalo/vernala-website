@@ -35,6 +35,16 @@ export function Translator() {
 
   const { toast } = useToast();
 
+  const getTextareaClass = () => {
+    if (isTranslating) {
+      return "text-gray-400";
+    }
+    if (translatedText && !translatedText.includes("not found")) {
+      return "text-gray-900 font-medium";
+    }
+    return "text-gray-400";
+  };
+
   const handleCopy = async () => {
     if (translatedText && !translatedText.includes("not found")) {
       await navigator.clipboard.writeText(translatedText);
@@ -169,13 +179,7 @@ export function Translator() {
                 <Textarea
                   readOnly
                   placeholder="Translation will appear here..."
-                  className={`h-32 text-lg bg-white border-orange-200 resize-none focus-visible:ring-0 ${
-                    isTranslating
-                      ? "text-gray-400"
-                      : translatedText && !translatedText.includes("not found")
-                        ? "text-gray-900 font-medium"
-                        : "text-gray-400"
-                  }`}
+                  className={`h-32 text-lg bg-white border-orange-200 resize-none focus-visible:ring-0 ${getTextareaClass()}`}
                   value={
                     isTranslating ? "Translating..." : translatedText || ""
                   }
