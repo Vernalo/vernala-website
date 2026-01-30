@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
-  onContactClick: () => void;
+  readonly onContactClick: () => void;
 }
 
 export function Header({ onContactClick }: HeaderProps) {
@@ -9,7 +9,7 @@ export function Header({ onContactClick }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-50 bg-amber-50/80 backdrop-blur-md border-b border-orange-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img
               src="/images/vernala-logo.png"
               alt="Vernala"

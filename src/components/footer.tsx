@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Heart } from "lucide-react";
 
 export function Footer() {
@@ -6,8 +5,8 @@ export function Footer() {
     <footer className="py-12 px-4 border-t border-orange-200 bg-white/50">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <a href="#" className="flex items-center">
-            <Image
+          <a href="/" className="flex items-center">
+            <img
               src="/images/vernala-logo.png"
               alt="Vernala"
               width={120}
