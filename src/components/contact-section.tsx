@@ -48,6 +48,16 @@ export const ContactSection = forwardRef<HTMLElement>((_, ref) => {
     }));
   };
 
+  const getPlaceholderText = () => {
+    if (formData.inquiryType === "new-language") {
+      return "Tell us about the language you'd like us to add...";
+    }
+    if (formData.inquiryType === "translation-error") {
+      return "Please describe the error you found...";
+    }
+    return "How can we help you?";
+  };
+
   return (
     <section ref={ref} id="contact" className="py-24 px-4">
       <div className="max-w-2xl mx-auto">
@@ -170,13 +180,7 @@ export const ContactSection = forwardRef<HTMLElement>((_, ref) => {
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder={
-                      formData.inquiryType === "new-language"
-                        ? "Tell us about the language you'd like us to add..."
-                        : formData.inquiryType === "translation-error"
-                          ? "Please describe the error you found..."
-                          : "How can we help you?"
-                    }
+                    placeholder={getPlaceholderText()}
                     value={formData.message}
                     onChange={handleChange}
                     required
