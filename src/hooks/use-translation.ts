@@ -50,45 +50,47 @@ export function useTranslation() {
     setIsTranslating(true);
 
     try {
-      // Call the API
       const response = await translateWordApi({
         source: toApiLanguageCode(sourceLanguage),
         word: sourceText.trim(),
-        match: 'exact',
+        match: "exact",
         limit: 10,
       });
 
-      // Check if we have results
       if (response.results && response.results.length > 0) {
-        // Format multiple results or show the first one
         if (response.results.length === 1) {
           setTranslatedText(response.results[0].target_word);
         } else {
-          // Show multiple translations
           const translations = response.results
             .map((result, index) => `${index + 1}. ${result.target_word}`)
-            .join('\n');
+            .join("\n");
           setTranslatedText(translations);
         }
       } else {
-        setTranslatedText(`Word "${sourceText.trim()}" not found in dictionary`);
+        setTranslatedText(
+          `Word "${sourceText.trim()}" not found in dictionary`,
+        );
       }
     } catch (error) {
-      console.error('Translation error:', error);
+      console.error("Translation error:", error);
 
-      // Handle API errors
       const apiError = error as ApiError;
       if (apiError.message) {
         setTranslatedText(`Error: ${apiError.message}`);
       } else {
-        // Fallback to local dictionary if API fails
-        console.warn('API failed, falling back to local dictionary');
-        const result = translateWordLocal(sourceText, sourceLanguage, targetLanguage);
+        console.warn("API failed, falling back to local dictionary");
+        const result = translateWordLocal(
+          sourceText,
+          sourceLanguage,
+          targetLanguage,
+        );
 
         if (result) {
           setTranslatedText(result);
         } else {
-          setTranslatedText(`Word "${sourceText.trim()}" not found in dictionary`);
+          setTranslatedText(
+            `Word "${sourceText.trim()}" not found in dictionary`,
+          );
         }
       }
     } finally {

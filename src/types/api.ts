@@ -1,7 +1,3 @@
-/**
- * Translation API types
- */
-
 export interface TranslationQuery {
   source: string;
   target: string | null;
@@ -26,7 +22,7 @@ export interface TranslationResponse {
 export interface TranslationParams {
   source: string;
   word: string;
-  match?: 'exact' | 'partial';
+  match?: "exact" | "contains" | "prefix";
   limit?: number;
   target?: string;
 }
