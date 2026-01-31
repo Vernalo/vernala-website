@@ -40,7 +40,8 @@ export function HeroSection() {
 
         <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed text-pretty">
           Preserve and share the beauty of Cameroonian languages. Vernala helps
-          you translate English into Ghomala, Ngiemboon, Basaa, and Bafut.
+          you translate English into Ngiemboon for now. More languages will be
+          added soon.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -63,12 +64,12 @@ export function HeroSection() {
 
         <div className="mt-16 flex items-center justify-center gap-8 flex-wrap">
           <div className="text-center">
-            <p className="text-3xl font-bold text-orange-600">4</p>
-            <p className="text-sm text-gray-600">Languages</p>
+            <p className="text-3xl font-bold text-orange-600">1</p>
+            <p className="text-sm text-gray-600">Language</p>
           </div>
           <div className="w-px h-12 bg-orange-200 hidden sm:block" />
           <div className="text-center">
-            <p className="text-3xl font-bold text-orange-600">100+</p>
+            <p className="text-3xl font-bold text-orange-600">1K+</p>
             <p className="text-sm text-gray-600">Words per Language</p>
           </div>
           <div className="w-px h-12 bg-orange-200 hidden sm:block" />

@@ -1,6 +1,3 @@
-// Cameroonian Languages Dictionary
-// Languages: Ghomala, Ngiemboon, Bafut + English, French
-
 export interface Language {
   code: string;
   name: string;
@@ -59,11 +56,11 @@ export const languages: Language[] = [
 
 // Translation rules: source -> allowed targets
 export const translationRules: Record<string, string[]> = {
-  english: ["bafut", "ngiemboon"],
-  french: ["bafut", "ngiemboon", "ghomala"],
-  ghomala: ["french"],
+  english: ["ngiemboon"],
+  french: ["ngiemboon"],
+  // ghomala: ["french"],
   ngiemboon: ["english", "french"],
-  bafut: ["english", "french"],
+  // bafut: ["english", "french"],
 };
 
 // Get allowed target languages for a source language
@@ -84,106 +81,6 @@ export type Dictionary = Record<string, Record<string, string>>;
 
 // English to Cameroonian languages dictionary
 export const englishDictionary: Dictionary = {
-  ghomala: {
-    hello: "mbʉ́",
-    goodbye: "kə̄ yī",
-    welcome: "ɑ́ pɑ̄ɑ́",
-    thanks: "ŋkwə́tə́",
-    please: "ghə̀",
-    sorry: "pɔ̀p",
-    yes: "ə́ə̄",
-    no: "kɑ̀",
-    mother: "mɑ́",
-    father: "tɑ́",
-    child: "mwɑ̀n",
-    children: "pɔ́",
-    brother: "dzʉ̀ mbɛ́",
-    sister: "dzʉ̀ mjwì",
-    family: "ndāp",
-    husband: "mbɛ́",
-    wife: "mjwì",
-    water: "shyə̀",
-    fire: "mɔ̀k",
-    sun: "nām",
-    moon: "jwə́",
-    earth: "sī",
-    rain: "mvʉ̀",
-    tree: "tʉ́",
-    food: "tsɑ́",
-    meat: "nɑ̀m",
-    fish: "shwə́",
-    head: "thʉ́",
-    eye: "lʉ́",
-    ear: "tóŋ",
-    mouth: "shwə́",
-    hand: "pú",
-    foot: "kwɔ́",
-    heart: "ntʉ̀m",
-    dog: "mbvʉ́",
-    cat: "pùsì",
-    chicken: "kwɑ̀p",
-    goat: "mbʉ̀",
-    cow: "nɑ́k",
-    bird: "nɔ̀m",
-    snake: "nyʉ̀",
-    eat: "pfɑ́",
-    drink: "nwə́",
-    sleep: "lyə̄p",
-    walk: "ghɛ̄",
-    run: "khʉ́",
-    speak: "ghɔ̀m",
-    listen: "yú",
-    see: "yɛ́",
-    come: "sɔ̄",
-    go: "ghɛ̄",
-    give: "hɑ́",
-    take: "kwì",
-    love: "kə̀ŋnə́",
-    work: "fɑ̀",
-    one: "mɔ̀",
-    two: "pfʉ̀ɑ́",
-    three: "tɑ́rə́",
-    four: "kwɑ́",
-    five: "tɑ̂n",
-    six: "ntɔ̀k",
-    seven: "sɑ̀mbʉ́ɑ́",
-    eight: "hɔ̀m",
-    nine: "pfʉ̀ɑ́ kə́ kwɑ́",
-    ten: "ghɑ̀m",
-    today: "lɑ̀",
-    tomorrow: "mfə́ŋ",
-    yesterday: "zhwə́",
-    morning: "tə́ŋ",
-    evening: "tsʉ́m",
-    night: "tə̀sʉ́",
-    good: "pùŋ",
-    bad: "bɛ́",
-    big: "gɑ̀p",
-    small: "kə̀tí",
-    hot: "hɑ̀k",
-    cold: "vyə̀",
-    new: "fə́fɔ́",
-    old: "lɑ̀",
-    house: "ndāp",
-    road: "mə̀zhyə́",
-    village: "pə̄",
-    market: "pàt",
-    money: "ŋkɑ́p",
-    friend: "dzʉ̀",
-    king: "fɔ̀",
-    god: "sī",
-    peace: "mfɛ̄",
-    life: "lwə̀",
-    death: "vʉ́",
-    name: "lí",
-    person: "mɔ̀",
-    people: "pɔ̀",
-    man: "mbɛ́",
-    woman: "mjwì",
-    boy: "mwɑ̀n mbɛ́",
-    girl: "mwɑ̀n mjwì",
-  },
-
   ngiemboon: {
     hello: "mbwò",
     goodbye: "kàa wɔ́",
@@ -769,19 +666,13 @@ export function getWordCount(
 // Get example words for hints
 export function getExampleWords(sourceLanguage: string): string[] {
   if (sourceLanguage === "english") {
-    return ["hello", "love", "family", "peace", "water", "mother", "sun"];
+    return ["love", "family", "peace"];
   }
   if (sourceLanguage === "french") {
-    return ["bonjour", "merci", "famille", "paix", "eau", "mère", "soleil"];
-  }
-  if (sourceLanguage === "ghomala") {
-    return ["mbʉ́", "ŋkwə́tə́", "ndāp", "mfɛ̄", "shyə̀", "mɑ́", "nām"];
+    return ["merci", "famille", "paix"];
   }
   if (sourceLanguage === "ngiemboon") {
-    return ["mbwò", "àkìbà", "ndà", "mfɛ̀", "njì", "màà", "nàm"];
-  }
-  if (sourceLanguage === "bafut") {
-    return ["àkòbə́", "àbùy", "ndà", "ǹbɔ̀ŋ", "ǹdzù", "màà", "nɔ̀ɔ́m"];
+    return ["nkwòŋe", "tsìŋe ndá", "mbʉ́lè"];
   }
   return [];
 }
