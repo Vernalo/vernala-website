@@ -11,7 +11,12 @@ import { translateWord as translateWordApi } from "@/lib/api-client";
 import { toApiLanguageCode } from "@/lib/language-mapping";
 import type { ApiError } from "@/types/api";
 
-export function useTranslation() {
+interface UseTranslationOptions {
+  apiWordCounts?: Record<string, number>;
+}
+
+export function useTranslation(options: UseTranslationOptions = {}) {
+  const { apiWordCounts } = options;
   const [sourceText, setSourceText] = useState("");
   const [sourceLanguage, setSourceLanguage] = useState("english");
   const [targetLanguage, setTargetLanguage] = useState("bafut");
@@ -104,7 +109,9 @@ export function useTranslation() {
   const selectedTargetLanguage = languages.find(
     (l) => l.code === targetLanguage,
   );
-  const wordCount = getWordCount(sourceLanguage, targetLanguage);
+
+  // Use API word count if available, otherwise fall back to local dictionary
+  const wordCount = apiWordCounts?.[targetLanguage] || getWordCount(sourceLanguage, targetLanguage);
   const exampleWords = getExampleWords(sourceLanguage);
 
   return {
