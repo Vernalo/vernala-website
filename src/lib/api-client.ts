@@ -4,6 +4,7 @@ import type {
   TranslationResponse,
   TranslationParams,
   ApiError,
+  LanguagesResponse,
 } from "@/types/api";
 
 class ApiClient {
@@ -111,9 +112,16 @@ class ApiClient {
       return false;
     }
   }
+
+  async getLanguages(): Promise<LanguagesResponse> {
+    const response = await this.client.get<LanguagesResponse>("/languages");
+    return response.data;
+  }
 }
 
 export const apiClient = new ApiClient();
 
 export const translateWord = (params: TranslationParams) =>
   apiClient.translate(params);
+
+export const getLanguages = () => apiClient.getLanguages();

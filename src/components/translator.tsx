@@ -10,10 +10,13 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, ArrowLeftRight, Copy, Loader2, Plus } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
+import { useLanguages } from "@/hooks/use-languages";
 import { useToast } from "@/hooks/use-toast";
 import { translationRules } from "@/lib/dictionary";
 
 export function Translator() {
+  const { wordCounts } = useLanguages();
+
   const {
     sourceText,
     setSourceText,
@@ -30,7 +33,7 @@ export function Translator() {
     selectedSourceLanguage,
     wordCount,
     exampleWords,
-  } = useTranslation();
+  } = useTranslation({ apiWordCounts: wordCounts });
 
   const { toast } = useToast();
 

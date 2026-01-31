@@ -32,3 +32,15 @@ export interface ApiError {
   status?: number;
   code?: string;
 }
+
+export interface LanguageInfo {
+  code: string;
+  name: string;
+  type: 'source' | 'target' | 'both';
+  word_count: number;
+}
+
+export interface LanguagesResponse {
+  languages: LanguageInfo[];
+  count: number;
+}
