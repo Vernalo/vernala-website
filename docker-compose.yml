@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  vernala-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Set your API URL here or use environment variable
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
+    container_name: vernala-website
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - vernala-network
+    # Uncomment and configure labels for Traefik integration
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.vernala.rule=Host(`vernala.example.com`)"
+    #   - "traefik.http.routers.vernala.entrypoints=websecure"
+    #   - "traefik.http.routers.vernala.tls.certresolver=letsencrypt"
+    #   - "traefik.http.services.vernala.loadbalancer.server.port=3000"
+
+networks:
+  vernala-network:
+    driver: bridge
