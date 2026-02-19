@@ -78,7 +78,7 @@ export function getSourceLanguages(): Language[] {
 
 export type Dictionary = Record<string, Record<string, string>>;
 
-// English to Cameroonian languages dictionary
+//Mock English to Cameroonian languages dictionary
 export const englishDictionary: Dictionary = {
   ngiemboon: {
     hello: "mbwò",
@@ -181,7 +181,7 @@ export const englishDictionary: Dictionary = {
   },
 };
 
-// French to Cameroonian languages dictionary
+// Mock French to Cameroonian languages dictionary
 export const frenchDictionary: Dictionary = {
   ngiemboon: {
     bonjour: "mbwò",
