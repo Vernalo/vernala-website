@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Users } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { languages } from "@/lib/dictionary";
 
 const cameroonianLanguages = languages.filter(
@@ -17,71 +16,84 @@ const languageExamples: Record<
 
 export function LanguagesSection() {
   return (
-    <section id="languages" className="py-24 px-4 bg-orange-100/50">
+    <section id="languages" className="py-24 px-6 sm:px-10 lg:px-20">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        {/* Section header */}
+        <div className="mb-16">
+          <span className="text-[10px] tracking-widest uppercase text-savanna mb-3 block">
+            Our Languages
+          </span>
+          <h2 className="font-display text-4xl sm:text-5xl text-cream mb-4">
             Cameroonian Languages
           </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
-            Explore the Cameroonian languages we currently support, preserving
-            the rich linguistic heritage of Cameroon
+          <p className="text-mist text-sm max-w-md">
+            Explore the living languages we support — preserving the rich
+            linguistic heritage of Cameroon.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cameroonianLanguages.map((lang) => {
+        {/* Editorial language list */}
+        <div>
+          {cameroonianLanguages.map((lang, i) => {
             const example = languageExamples[lang.code];
             return (
-              <Card
+              <div
                 key={lang.code}
-                className="bg-white/80 backdrop-blur-sm border-orange-200 hover:border-orange-400 transition-colors group shadow-lg shadow-orange-500/5"
+                className="group border-t border-white/10 py-8 grid grid-cols-12 gap-x-6 gap-y-3 hover:bg-white/[0.02] transition-colors"
               >
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
+                {/* Index */}
+                <div className="col-span-1 pt-1">
+                  <span className="text-[10px] text-mist/30 font-mono tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Language name + meta */}
+                <div className="col-span-11 sm:col-span-4">
+                  <h3 className="font-display text-3xl sm:text-4xl text-cream group-hover:text-savanna transition-colors leading-none mb-3">
                     {lang.name}
                   </h3>
-
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                  <div className="flex items-center gap-3 text-xs text-mist/60">
                     <span className="flex items-center gap-1">
                       <MapPin className="w-3 h-3" />
                       {lang.region}
                     </span>
+                    <span className="text-mist/30">·</span>
+                    <span>{lang.speakers} speakers</span>
                   </div>
+                </div>
 
-                  <div className="flex items-center gap-1 text-sm text-gray-500 mb-4">
-                    <Users className="w-3 h-3" />
-                    {lang.speakers} speakers
-                  </div>
-
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-3">
+                {/* Description */}
+                <div className="col-span-11 sm:col-span-5 sm:col-start-6 flex items-center">
+                  <p className="text-sm text-mist/70 leading-relaxed line-clamp-2">
                     {lang.description}
                   </p>
+                </div>
 
-                  {example && (
-                    <div className="pt-4 border-t border-orange-100">
-                      <p className="text-xs text-gray-500 mb-1">Example:</p>
-                      <p className="text-sm">
-                        <span className="text-gray-900">{example.english}</span>
-                        <span className="mx-2 text-gray-400">→</span>
-                        <span className="text-orange-600 font-medium">
-                          {example.translation}
-                        </span>
-                      </p>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
+                {/* Example translation */}
+                {example && (
+                  <div className="col-span-11 sm:col-span-2 sm:col-start-11 flex sm:flex-col sm:items-end items-center gap-2 sm:gap-0.5">
+                    <span className="font-display text-lg text-savanna leading-none">
+                      {example.translation}
+                    </span>
+                    <span className="text-[10px] text-mist/40 sm:mt-1">
+                      "{example.english}"
+                    </span>
+                  </div>
+                )}
+              </div>
             );
           })}
+          <div className="border-t border-white/10" />
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-600">
-            {"Know another Cameroonian language? "}
+        {/* CTA */}
+        <div className="mt-12">
+          <p className="text-sm text-mist/60">
+            Know another Cameroonian language?{" "}
             <a
               href="#contact"
-              className="text-orange-600 hover:underline font-medium"
+              className="text-savanna hover:text-savanna/80 font-medium transition-colors underline underline-offset-4 decoration-savanna/30"
             >
               Help us add it
             </a>

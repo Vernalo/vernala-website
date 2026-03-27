@@ -15,7 +15,7 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+    <main className="min-h-screen bg-forest">
       <Header onContactClick={scrollToContact} />
       <HeroSection />
       <Translator />

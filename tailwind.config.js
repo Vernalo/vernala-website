@@ -7,12 +7,32 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			display: ['Fraunces', 'serif'],
+  			sans: ['DM Sans', 'sans-serif'],
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+  		keyframes: {
+  			fadeUp: {
+  				'0%': { opacity: '0', transform: 'translateY(20px)' },
+  				'100%': { opacity: '1', transform: 'translateY(0)' },
+  			},
+  		},
+  		animation: {
+  			'fade-up': 'fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
+  		},
   		colors: {
+  			forest: '#0C1A0E',
+  			canopy: '#152218',
+  			bark: '#221810',
+  			savanna: '#C8920A',
+  			flame: '#C1440E',
+  			cream: '#F0E6C8',
+  			mist: '#9A9080',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
