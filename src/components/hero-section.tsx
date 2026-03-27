@@ -114,7 +114,7 @@ export function HeroSection() {
 
         {/* Language nameplate strip */}
         <div
-          className="flex items-center gap-5 text-sm text-mist animate-fade-up"
+          className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-mist animate-fade-up"
           style={{ animationDelay: "340ms" }}
         >
           <span className="text-[10px] tracking-widest uppercase text-mist/50 shrink-0">
