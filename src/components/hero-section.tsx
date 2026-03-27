@@ -135,13 +135,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      <a
-        href="#translate"
-        className="absolute bottom-8 left-6 sm:left-10 text-mist/40 hover:text-savanna transition-colors text-[10px] tracking-widest uppercase flex items-center gap-2 animate-bounce"
-      >
-        <span>↓</span>
-        <span>Scroll</span>
-      </a>
     </section>
   );
 }
