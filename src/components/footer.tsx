@@ -17,7 +17,7 @@ export function Footer() {
 
           <p className="text-sm text-gray-600 flex items-center gap-1">
             Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" />{" "}
-            for Cameroonian languages
+            to persist Cameroonian languages.
           </p>
 
           <p className="text-sm text-gray-500">
