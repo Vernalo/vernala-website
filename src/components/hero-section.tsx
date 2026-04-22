@@ -1,6 +1,6 @@
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex flex-col justify-center pt-16 px-6 sm:px-10 lg:px-20 relative overflow-hidden">
+    <section className="flex flex-col pt-24 pb-24 px-6 sm:px-10 lg:px-20 relative overflow-hidden">
       {/* Kente-inspired geometric pattern — right side */}
       <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none select-none">
         <svg
