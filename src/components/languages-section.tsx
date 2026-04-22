@@ -16,7 +16,7 @@ const languageExamples: Record<
 
 export function LanguagesSection() {
   return (
-    <section id="languages" className="py-24 px-6 sm:px-10 lg:px-20">
+    <section id="languages" className="pt-24 pb-12 px-6 sm:px-10 lg:px-20">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="mb-16">
