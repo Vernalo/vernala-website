@@ -10,7 +10,7 @@ services:
         VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
     container_name: vernala-website
     ports:
-      - "3000:3000"
+      - "3005:3005"
     environment:
       - NODE_ENV=production
     restart: unless-stopped

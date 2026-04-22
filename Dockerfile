@@ -37,12 +37,12 @@ COPY --from=builder /app/dist ./dist
 # Copy serve configuration
 COPY serve.json ./serve.json
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 3005
+EXPOSE 3005
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --quiet --tries=1 --spider http://localhost:3000/ || exit 1
+    CMD wget --quiet --tries=1 --spider http://localhost:3005/ || exit 1
 
 # Start serve with configuration
 CMD ["serve", "-c", "serve.json", "-l", "3000"]
