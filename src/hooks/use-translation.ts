@@ -81,7 +81,8 @@ export function useTranslation(options: UseTranslationOptions = {}) {
 
       const apiError = error as ApiError;
       if (apiError.message) {
-        setTranslatedText(`Error: ${apiError.message}`);
+        console.error("Translation service error:", apiError.message);
+        setTranslatedText("We're having trouble, please retry later.");
       } else {
         console.warn("API failed, falling back to local dictionary");
         const result = translateWordLocal(
